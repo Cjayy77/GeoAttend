@@ -53,7 +53,9 @@
         <div class="form-back">
           <a href="#" onclick="backToRoleGateway()">← Back</a>
         </div>
+
         <h2 id="loginTitle">Login</h2>
+
         <form id="loginFormElement">
           <div class="form-group">
             <label for="loginEmail">Email:</label>
@@ -65,7 +67,9 @@
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
+
         <p class="form-toggle">Don't have an account? <a href="#" onclick="toggleToSignup()">Sign Up</a></p>
+
       </div>
 
       <!-- Signup Form -->
@@ -73,7 +77,9 @@
         <div class="form-back">
           <a href="#" onclick="backToRoleGateway()">← Back</a>
         </div>
+
         <h2>Sign Up</h2>
+
         <form id="signupFormElement">
           <div class="form-group">
             <label for="signupEmail">Email:</label>
@@ -92,6 +98,26 @@
             <input type="text" id="signupName" required>
           </div>
           <div id="levelFieldContainer" class="form-group" style="display: none;">
+            <label for="signupSpeciality">Speciality:</label>
+            <select id="signupSpeciality">
+              <option value="">Select Speciality</option>
+              <option value="100">SWE</option>
+              <option value="200">ITS</option>
+              <option value="300">EPS</option>
+              <option value="400">DBM</option>
+              <option value="500">ACC</option>
+              <option value="500">BFI</option>
+              <option value="500">CWD</option>
+              <option value="500">HUR</option>
+              <option value="500">NWS</option>
+              <option value="500">NUS</option>
+              <option value="500">MEM</option>
+              <option value="500">AGP</option>
+              <option value="500">EDM</option>
+            </select>
+          </div>
+
+          <div id="levelFieldContainer" class="form-group" style="display: none;">
             <label for="signupLevel">Level/Year:</label>
             <select id="signupLevel">
               <option value="">Select Level</option>
@@ -99,12 +125,14 @@
               <option value="200">Level 200</option>
               <option value="300">Level 300</option>
               <option value="400">Level 400</option>
-              <option value="500">Level 500</option>
+              <option value="500">Level 500(Masters)</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
+
         <p class="form-toggle">Already have an account? <a href="#" onclick="toggleToLogin()">Login</a></p>
+
       </div>
 
       <!-- Error Message -->
@@ -229,6 +257,7 @@
       const password = document.getElementById('signupPassword').value;
       const confirmPassword = document.getElementById('signupConfirmPassword').value;
       const name = document.getElementById('signupName').value.trim();
+      const speciality = selectedRole === 'student' ? document.getElementById('signupSpeciality').value : null ;
       const level = selectedRole === 'student' ? document.getElementById('signupLevel').value : null;
       
       try {
@@ -238,12 +267,17 @@
         if (password !== confirmPassword) {
           throw new Error('Passwords do not match');
         }
+
+        if (selectedRole === 'student' && !speciality){
+          throw new Error('Please select your speciality');
+        }
         
         if (selectedRole === 'student' && !level) {
           throw new Error('Please select your level');
         }
 
-        await registerUser(email, password, name, selectedRole, level);
+
+        await registerUser(email, password, name, selectedRole, speciality, level);
         showFormLoading(false);
         console.log('[Auth] Signup successful, redirecting to', selectedRole === 'student' ? '/student.html' : '/lecturer.html');
         // Redirect immediately after successful signup

@@ -15,7 +15,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
 // Create new user account
-export async function registerUser(email, password, name, role, level = null) {
+export async function registerUser(email, password, name, role, speciality, level = null) {
   try {
     // Create auth account
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -56,6 +56,7 @@ export async function registerUser(email, password, name, role, level = null) {
       emailType: typeof userData.email,
       name: userData.name,
       nameType: typeof userData.name,
+      speciality: userData.speciality,
       level: userData.level,
       data: userData
     });

@@ -72,7 +72,7 @@
             <div class="form-group">
               <label for="durationInput">Session Duration (minutes):</label>
               <input type="number" id="durationInput" min="1" max="480" value="30" required>
-              <small>Range: 1-480 minutes</small>
+              <small>Range: 1-450 minutes</small>
             </div>
 
             <button type="submit" class="btn btn-primary">Start Session</button>
@@ -91,7 +91,7 @@
             <div>
               <h2>Active Session</h2>
               <p>Session ID: <span id="sessionId">-</span></p>
-              <p>Status: <span id="sessionStatus" style="color: #2d5016;">Active</span></p>
+              <p>Status: <span id="sessionStatus" style="color: #438815;">Active</span></p>
             </div>
             <div class="timer-display">
               <div id="timerDisplay" class="timer">--:--</div>
@@ -123,6 +123,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Level</th>
+                    <th>Speciality</th>
                     <th>Method</th>
                     <th>Time</th>
                   </tr>
@@ -181,13 +182,14 @@
                   <tr>
                     <th>Student Name</th>
                     <th>Level</th>
+                    <th>Speciality</th>
                     <th>Method</th>
                     <th>Time</th>
                   </tr>
                 </thead>
                 <tbody id="detailsAttendanceList">
                   <tr>
-                    <td colspan="4" style="text-align: center; color: #999;">No attendance records</td>
+                    <td colspan="4" style="text-align: center; color: #897e7e;">No attendance records</td>
                   </tr>
                 </tbody>
               </table>
