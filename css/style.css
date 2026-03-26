@@ -62,6 +62,7 @@ input::placeholder {
 .sidebar-header h3,
 .sidebar-section h4 {
   color: var(--text-on-glass);
+  display: flex;
 }
 
 /* Table text */
@@ -128,6 +129,7 @@ input::placeholder {
 .geo-status {
   color: var(--text-on-glass);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -172,15 +174,15 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
+  /* display: flex; */
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background: transparent;
   color: var(--dark-text);
-  min-height: 100vh;
-  line-height: 1.6;
+  min-height: 85vh;
+  line-height: 1.2;
   font-weight: 400;
 }
 
