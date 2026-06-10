@@ -9,7 +9,7 @@ A complete, fully functional web-based attendance system that combines geolocati
 - Role-based access (Student/Lecturer)
 - Firebase Authentication  
 
-✅ **Lecturer Features**
+✅ **Lecturer Features** 
 - Create attendance sessions 
 - Set attendance radius (10-1000m)
 - Set session duration
